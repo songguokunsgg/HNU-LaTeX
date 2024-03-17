@@ -4,6 +4,9 @@
 %	https://github.com/blackender/hunnuthesis
 %	https://github.com/leekunhwee/XJTU_Thesis_LaTeX_2021
 % 运行：firing.bat
+
+\special{dvipdfmx:config z 0} %取消 PDF 压缩，加快速度，最终版本生成的时候最好把这句话注释掉
+
 \documentclass[openany,twoside,fontset=none,UTF8]{ctexbook}
 \input{setup/package}
 \graphicspath{{figures/}} % 设定图片存放的根目录
@@ -20,17 +23,17 @@
 
 %======================================= Main Body =======================================
 \mainmatter
+
+\zihao{-4} \song  % 正文字体
 \include{body/chapter_1}
 \include{body/chapter_2}
 \include{body/chapter_3}
 \include{body/chapter_4}
-\include{body/chapter_5}
- 
 %======================================= Reference =======================================
 \backmatter
+\include{body/chapter_5}
 \addcontentsline{toc}{chapter}{参考文献}
 \bibliography{bib/ref}
-
 %======================================= Appendix ========================================
 \include{appendix/acknowledgements} % 致谢
 \include{appendix/achievements}     % 成果

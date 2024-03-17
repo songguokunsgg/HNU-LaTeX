@@ -1,20 +1,20 @@
 % !Mode:: "TeX:UTF-8"
 
 % ======================================= Cover =========================================
-\newcommand{\logcolor}{red}                                             % 图标颜色, 只有 red 和 black
-\newcommand{\titlecn}{中文标题\\中文标题}     % 中文标题
-\newcommand{\titleen}{英文标题\\英文标题}          % 英文标题
-\newcommand{\titlehead}{页眉标题}      % 页眉标题
-\newcommand{\priormajor}{学科专业}                                       % 学科专业
-\newcommand{\authorname}{作者姓名}                                           % 作者姓名
-\newcommand{\supervisor}{导师姓名~导师职称}                                    % 导师
+\newcommand{\logcolor}{red}                                             % 图标颜色，只有 red 和 black
+\newcommand{\titlecn}{湖南师范大学的硕士\\LaTeX毕业论文模板}     % 中文标题
+\newcommand{\titleen}{Waiting For Your Thesis\\Hello}          % 英文标题
+\newcommand{\titlehead}{湖南师范大学的硕士LaTeX毕业论文模板}      % 页眉标题
+\newcommand{\priormajor}{计算机科学与技术}                                       % 学科专业
+\newcommand{\authorname}{姓名}                                           % 作者姓名
+\newcommand{\supervisor}{导师名字~职称}                                    % 导师
 \newcommand{\thesisid}{}                                                % 论文编号
 \newcommand{\clcnumber}{}                                               % 分类号
 \newcommand{\csecret}{公开}                                             % 密级
 \newcommand{\schoolcode}{10542}                                         % 学校代码
-\newcommand{\studentid}{学号}                                   % 学号
-\newcommand{\interestmajor}{研究方向}                                    % 研究方向
-\newcommand{\thesisdate}{二〇二三年六月}                                 % 论文日期
+\newcommand{\studentid}{202159386276}                                   % 学号
+\newcommand{\interestmajor}{深度学习}                                    % 研究方向
+\newcommand{\thesisdate}{二零二四年五月}                                 % 论文日期
 
 \makeatletter
 %========================================= Font ==========================================
@@ -28,17 +28,19 @@
 }
 \def\defaultfont{\renewcommand{\baselinestretch}{1.5}\normalsize\selectfont}
 
-% 脚注字体为 5 号
-\renewcommand{\footnotesize}{\zihao{5} \fs}
+% 表格字体用 \small 缩小，五号宋体
+\renewcommand{\small}{\zihao{5} \song}
 
-% 设置字间距，使每行37个字，若要减少每行字数（一般以34个），将0.56pt的值增加
+% 设置字间距，使每行 37 个字，若要减少每行字数（一般以 34 个），将 0.56pt 的值增加
 \renewcommand{\CJKglue}{\hskip 0.56pt plus 0.08\baselineskip}
 
-% 段落缩进: 2 个字符
+% 段落缩进：2 个字符
 \setlength{\parindent}{2em}
 
-% 段落间距: 涉及目录
-\setlength{\parskip}{3pt plus1pt minus1pt} % 
+% 段落间距：涉及目录
+% 原代码意思是：段落间距是至少 3pt，但可能会因为页面边距的限制而增加或减少最多 1pt。这样的设置可以使得段落之间有适当的空隙，同时避免了因为页面边距不足而导致段落重叠的情况。
+% 默认段间距是 0，符合师大要求，注释这一行
+% \setlength{\parskip}{3pt plus1pt minus1pt} % 
 
 % 公式跨页设置，公式之前可以换页，公式出现在页面顶部
 \predisplaypenalty=0
@@ -55,7 +57,7 @@
      \makeheadrule}}
 \pagestyle{fancyplain}
 
-% 不要注销这一行，否则页眉会变成：“第1章1  绪论”样式
+% 不要注销这一行，否则页眉会变成：“第 1 章 1  绪论”样式
 \renewcommand{\chaptermark}[1]{\markboth{\chaptertitlename~~\ #1}{}}
 \fancyhf{}
 \fancyhead[CO]{\zihao{5} \song \titlehead} % 奇数页页眉
@@ -83,7 +85,7 @@
 
 % 标题格式设置
 \ctexset{
-    % 一级标题用 3 号黑体居中, 空一行
+    % 一级标题用 3 号黑体居中，空一行
     chapter = {
         format = {\linespread{1.0} \zihao{3} \hei \centering},
         name = {第 , 章},
@@ -141,24 +143,26 @@
 \theoremseparator{：}
 
 % 定理环境和上下文之间的距离
-\setlength{\theorempreskipamount}{8pt}
-\setlength{\theorempostskipamount}{8pt}
+\setlength{\theorempreskipamount}{0pt}
+\setlength{\theorempostskipamount}{0pt}
 
 % 定义新的定理环境
-\theoremsymbol{$\Diamond$} \newtheorem{definition}{\hskip 2em \hei 定义}[chapter]
-\theoremsymbol{$\blacklozenge$} \newtheorem{example}{\hskip 2em \hei 例}[chapter]
-\theoremsymbol{$\square$} \newtheorem{theorem}{\hskip 2em \hei 定理}[chapter]
-\theoremsymbol{$\blacksquare$} \newtheorem*{proof}{\hskip 2em \hei 证明}
+\theoremsymbol{} \newtheorem{Definition}{\hskip 2em \hei 定义}[chapter]
+\theoremsymbol{} \newtheorem{Proposition}{\hskip 2em \hei 命题}[chapter]
+\theoremsymbol{} \newtheorem{Example}{\hskip 2em \hei 例}[chapter]
+\theoremsymbol{} \newtheorem{Theorem}{\hskip 2em \hei 定理}[chapter]
+\theoremsymbol{} \newtheorem*{Proof}{\hskip 2em \hei 证明}
 
 %========================================= FTE ===========================================
-% 图表公式的编号为1-1格式，子图编号为 (a) 的格式
+% 图表公式的编号为 1-1 格式，子图编号为 (a) 的格式
 %\renewcommand{\figurename}{Figure}% 英文论文图标题以 Figure 开头
 %\renewcommand{\tablename}{Table}% 英文论文表标题以 Table 开头
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
 \renewcommand{\thesubfigure}{(\alph{subfigure})}
 \renewcommand{\p@subfigure}{\thefigure~}
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
-\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+\renewcommand{\thealgocf}{\thechapter-\arabic{algocf}} 
 
 % 把 tabularx 宏包的列格式左对齐改成居中对齐
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
@@ -168,8 +172,7 @@
 \captiontitlefont{\zihao{5}}
 \captiondelim{~~}
 \hangcaption
-\renewcommand{\subcapsize}{\zihao{5}}
-\setlength{\abovecaptionskip}{0pt}
+\setlength{\abovecaptionskip}{4pt}
 \setlength{\belowcaptionskip}{0pt}
 
 % 关于公式的几个定义
@@ -191,7 +194,7 @@
     \begin{list}{[\arabic{pubctr}]}{
      \usecounter{pubctr}
      \setlength{\leftmargin}{2em}        % 左边界
-     \setlength{\labelsep}{0.8em}        % 标号和列表项之间的距离,默认0.5em
+     \setlength{\labelsep}{0.8em}        % 标号和列表项之间的距离，默认 0.5em
      \setlength{\parsep}{0ex}            % 段落间距
      \setlength{\itemsep}{0ex}            % 标签间距
     }}
@@ -205,6 +208,7 @@
 \SetKwInput{KwOut}{输出}
 \SetAlCapSty{textrm}
 \SetAlCapSkip{1ex}
+\normalem % 取消关键字后面的下划线
 \makeatother
 
 % 更改代码标题
@@ -220,3 +224,13 @@
 \let\temp\addcontentsline
 \gdef\addcontentsline{\phantomsection\temp}
 \gdef\hitempty{}
+
+% 将线宽设置为 1pt
+\setlength{\arrayrulewidth}{0.25pt} 
+
+% 保证每一章的首页都在奇数页
+% 每一章前面添加 \clearemptydoublepage
+\newcommand{\clearemptydoublepage}{%
+\clearpage {\pagestyle{empty}
+\origdoublepage}
+}

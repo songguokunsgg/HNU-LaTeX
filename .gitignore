@@ -1,8 +1,14 @@
-*.aux
+*main.pdf
 *.log
 *.nlo
 *.out
 *.thm
-*.synctex.gz
 *.toc
-*.log
+*.synctex.gz
+*.blg
+*.fls
+*.fdb_latexmk
+*.xdv
+**/*.aux
+**/._*
+**/.Rhistory

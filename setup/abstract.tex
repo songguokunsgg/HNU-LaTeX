@@ -5,26 +5,49 @@
 \setcounter{page}{1}
 \pagenumbering{Roman}
 
-\begin{spacing}{1.5}
-    {\zihao{4} \song 摘要正文每段开头不缩进，每段之间空一行}
+% 行距挺坑的，加了 enumerate 的话，必须重新调行距，且上下不同
+{
+    \linespread{1.28} \selectfont
+    {\zihao{4} \song
+% 两倍行距的文字
+        主要做了以下工作：
 
-    {\zihao{4} \song 摘要正文}
-\end{spacing}
+        \begin{enumerate}[fullwidth,itemindent=\parindent]
+            \item 工作一。
+            \item 工作二。
+        \end{enumerate}
+
+        结果不错。
+        % 这里的空格不能省
+
+    }
+}
 
 \vspace{\baselineskip}
-{\hei \zihao{4} \noindent{\textbf{关键词：}}} {\song \zihao{4} 深度强化学习}
+{\hei \zihao{4} \noindent{\textbf{关键词：}}} {\song \zihao{4}
+    数据；相关；特征；融合；并行
+}
 \clearpage
 
 %====================================== 英文摘要 ==========================================
 \Chapter{ABSTRACT}
 
-\begin{spacing}{1.5}
-    {\zihao{4} \song 英文摘要正文每段开头不缩进，每段之间空一行。}
+{
+    \linespread{1.28} \selectfont
+    {\zihao{4} \song
+        makes improvements from the following three aspects:
 
-    {\zihao{4} \song 英文摘要正文}
-\end{spacing}
+        \begin{enumerate}[fullwidth,itemindent=\parindent]
+            \item A.
+            \item B.
+        \end{enumerate}
+
+        Result.
+
+    }
+}
 
 \vspace{\baselineskip}
-{\hei \zihao{4} \noindent{\textbf{Key Words: }}{\song \zihao{4} Deep Reinforcement Learning}
+{\hei \zihao{4} \noindent{\textbf{Key Words: }}{\song \zihao{4} Data; Family; Feature; Fusion; Parallel}}
 
 \clearpage{\pagestyle{empty}\cleardoublepage}% 目录从奇数页开始

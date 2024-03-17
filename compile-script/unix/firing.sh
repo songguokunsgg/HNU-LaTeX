@@ -32,7 +32,7 @@ export BSTINPUTS="./:${BSTINPUTS}"
 for i in 1 .. 3; do
     $CompileName $args $FileName
     # Build references and links
-    if [ i -eq 1 ]; then
+    if [ $i -eq 1 ]; then
         bibtex $FileName
     fi
 done

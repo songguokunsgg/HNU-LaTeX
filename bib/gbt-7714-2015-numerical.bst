@@ -1216,7 +1216,7 @@ FUNCTION {misc}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "M" format.mark "" output.after
+  "EB" format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1224,10 +1224,10 @@ FUNCTION {misc}
   new.sentence
   format.address output
   format.publisher punct.colon output.after
+  format.url output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
-  format.url output
   format.doi output
   fin.entry
 }

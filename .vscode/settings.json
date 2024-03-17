@@ -1,6 +1,4 @@
 {
-    // macOS, Linux 编译用shell脚本
-    "latex-workshop.latex.external.build.command": "./compile-script/unix/firing.sh"
-    // windows 用 bat 脚本
-    // "latex-workshop.latex.external.build.command": "./firing.bat"
+    // "latex-workshop.latex.external.build.command": "compile-script/unix/firing.sh",
+    "latex-workshop.latex.external.build.command": "compile-script/windows/firing.bat",
 }

@@ -10,16 +10,16 @@
     includefoot
 ]{geometry}                 % 控制页面尺寸
 \usepackage{titletoc}       % 控制目录的宏包
-\usepackage{titlesec}       % 控制标题的宏包, 缩进
+\usepackage{titlesec}       % 控制标题的宏包，缩进
 \usepackage{fancyhdr}       % 页眉和页脚的相关定义
 \usepackage{color}          % 支持彩色
 \usepackage{graphicx}       % 处理图片
 \usepackage{float}          % 浮动体处理
 \usepackage{tabularx}       % 可伸缩表格
-\usepackage{multirow}       % 表格可以合并多个row
+\usepackage{multirow}       % 表格可以合并多个 row
 \usepackage{booktabs}       % 表格横的粗线；\specialrule{1pt}{0pt}{0pt}
 \usepackage{longtable}      % 支持跨页的表格。
-\usepackage{enumitem}       % 使用enumitem宏包,改变列表项的格式
+\usepackage{enumitem}       % 使用 enumitem 宏包，改变列表项的格式
 \usepackage{amsmath}        % 公式宏包
 \usepackage{amssymb}        % 符号宏包
 \usepackage{amsfonts}       % 大写空心粗体字、欧拉字体宏包
@@ -30,12 +30,25 @@
 \usepackage{wasysym}        % Check Box Marks
 \usepackage{setspace}       % 行间距的宏包
 \usepackage[amsmath,thmmarks,hyperref]{ntheorem}    % 定理类环境宏包
-\usepackage[hang]{subfigure}                        % 图形或表格并排排列
 \usepackage[subfigure]{ccaption}                    % 支持双语标题
 \usepackage[sort&compress,numbers]{natbib}            % 支持引用缩写的宏包
 \usepackage{fontspec}        % 字体设置宏包
+\usepackage{threeparttable}
+\usepackage{colortbl}  % 彩色表格需要加载的宏包
+\usepackage{xcolor}
+\usepackage{array}   % 对表列和表格线的设置需要用到 array 宏包
+\usepackage{rotating}
+\usepackage[labelformat=simple]{subcaption}   % 子图，比较新，使用简单
+\usepackage{url}
 
-% 生成有书签的 pdf 及其开关, 该宏包应放在所有宏包的最后, 宏包之间有冲突
+% 设置图标标题格式
+\usepackage{caption}
+\captionsetup[figure]{labelsep=space}
+\captionsetup[table]{labelsep=space}
+\captionsetup{font={small}}
+
+
+% 生成有书签的 pdf 及其开关，该宏包应放在所有宏包的最后，宏包之间有冲突
 \usepackage[%
     xetex,
     bookmarksnumbered=true,
@@ -46,16 +59,20 @@
     breaklinks=true
 ]{hyperref}
 \hypersetup{hidelinks}        % hide links (remove color and border).
+\urlstyle{same} 
 
-% 算法的宏包，注意宏包兼容性，先后顺序为float、hyperref、algorithm(2e)，否则无法生成算法列表
+% 算法的宏包，注意宏包兼容性，先后顺序为 float、hyperref、algorithm(2e)，否则无法生成算法列表
 % linesnumbered         显示行号
 % ruled                 标题显示在上方，不加就默认显示在下方
 % vlined                代码段中用线连接
 % boxed                 将算法插入在一个盒子里
 % algochapter           算法是否在章节编号中编号
-\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage[linesnumbered,ruled,algochapter]{algorithm2e}
+% 将线粗设置为学校三线表格式
+\setlength{\algoheightrule}{2pt}
+\setlength{\algotitleheightrule}{0.25pt}
 
-% 为了避免与页眉的兼容问题可将listings放入table环境中
+% 为了避免与页眉的兼容问题可将 listings 放入 table 环境中
 \usepackage{listings}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -67,8 +84,8 @@
     commentstyle=\color{codegreen},        % 注释颜色
     keywordstyle=\color{blue},            % 代码关键字颜色
     stringstyle=\color{codepurple},        % 代码中字符串颜色
-    frame=single,            % 设置边框, 
-    xleftmargin=1.7em,        % 设定listing左边空白 
+    frame=single,            % 设置边框，
+    xleftmargin=1.7em,        % 设定 listing 左边空白 
     numbers=left,            % 左侧显示行号
     numberstyle=\small,        % 行号字体用小号
     breaklines=true,        % 对过长的代码自动换行 
@@ -76,17 +93,17 @@
     tabsize=4                % table 长度
 }
 
- \usepackage{nomencl} % 使用常用符号表，需要用到指令Makeindex指令生成符号表
+ \usepackage{nomencl} % 使用常用符号表，需要用到指令 Makeindex 指令生成符号表
  \makenomenclature
 
 % 带圆圈的脚注
 \usepackage{pifont}
-\usepackage[flushmargin,para,symbol*]{footmisc}
+\usepackage[flushmargin,symbol*]{footmisc}
 \DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
     {\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
 \setfnsymbol{circled}
 
-% 字体设置，Windows自带黑体(simhei.ttf)和宋体(simsun.ttf)
+% 字体设置，Windows 自带黑体 (simhei.ttf) 和宋体 (simsun.ttf)
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
